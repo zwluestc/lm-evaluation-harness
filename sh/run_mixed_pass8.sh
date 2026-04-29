@@ -9,12 +9,13 @@ export PYTHONPATH=$PYTHONPATH:$(pwd)
 MODEL_PATH="/mnt/data/zwl/models/Qwen3-4B-Base"
 
 echo "=================================================="
-echo "使用原生 HF 后端，启动评测 (8次采样以计算 pass@8)..."
+echo "使用 vLLM 后端，启动评测 (8次采样以计算 pass@8)..."
+echo "实时日志保存在 eval_pass8.log"
 echo "=================================================="
 
-# 使用 accelerate 启动 
-accelerate launch --num_processes=2 -m lm_eval --model hf \
-    --model_args pretrained=$MODEL_PATH,dtype=bfloat16 \
+# 使用 vllm 后端
+python -m lm_eval --model vllm \
+    --model_args pretrained=$MODEL_PATH,dtype=bfloat16,tensor_parallel_size=8,gpu_memory_utilization=0.8,add_bos_token=True \
     --include_path ./sh \
     --tasks mixed_pass8 \
     --apply_chat_template \
