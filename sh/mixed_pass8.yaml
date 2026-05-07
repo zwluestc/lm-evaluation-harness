@@ -22,7 +22,7 @@ generation_kwargs:
   temperature: 0.6
   top_p: 0.95
   top_k: 20
-  max_gen_toks: 32768
+  max_gen_toks: 24576
 filter_list:
   - name: "extract_boxed_answer"
     filter:
