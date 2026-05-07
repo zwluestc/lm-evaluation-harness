@@ -63,7 +63,7 @@ def main():
             pass_counts[doc_id] += is_correct
             total_counts[doc_id] += 1
     
-    original_data_path = "data/mixed.jsonl"
+    original_data_path = "data/mixed_10.jsonl"
     output_data_path = "data/mixed_pass8.jsonl"
     
     if not os.path.exists(original_data_path):

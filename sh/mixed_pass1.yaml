@@ -2,7 +2,7 @@ task: mixed_pass1
 dataset_path: json
 dataset_kwargs:
   data_files:
-    train: data/mixed_50.jsonl
+    train: data/mixed_10.jsonl
 output_type: generate_until
 test_split: train
 doc_to_text: "{{instruction}}\n{{input}}"
