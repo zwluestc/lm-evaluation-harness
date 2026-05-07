@@ -43,7 +43,19 @@ def judge_response(client, model, target, response):
         )
         
         content = completion.choices[0].message.content
-        res = json.loads(content)
+        if not content:
+            return False
+            
+        # 兼容一些模型返回时可能会带有 markdown code block 标记
+        content = content.strip()
+        if content.startswith("```json"):
+            content = content[7:]
+        if content.startswith("```"):
+            content = content[3:]
+        if content.endswith("```"):
+            content = content[:-3]
+            
+        res = json.loads(content.strip())
         return bool(res.get("is_correct", False))
     except Exception as e:
         print(f"Error during LLM evaluation: {e}")
@@ -116,9 +128,13 @@ def main():
         
         is_matched = judge_response(client, judge_model, target, str(response))
         data["exact_match"] = is_matched
+        
+        # 兼容 lm-eval 的 metrics 数据结构，有可能是 list 或者 dict
         if "metrics" not in data:
-            data["metrics"] = {}
-        data["metrics"]["exact_match"] = is_matched
+            data["metrics"] = {"exact_match": is_matched}
+        elif isinstance(data["metrics"], dict):
+            data["metrics"]["exact_match"] = is_matched
+        # 如果是 list，这里就不强行修改了，依赖 external 脚本读取 "exact_match" 的逻辑
         
         return data
         
