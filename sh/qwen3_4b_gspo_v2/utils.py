@@ -87,13 +87,19 @@ def _mean(values: Iterable[bool]) -> float:
 
 
 def _answer_from_doc(doc):
-    for key in ("Answer", "answer"):
+    for key in ("Answer", "answer", "answer_number"):
         if key in doc:
             return doc[key]
     raise KeyError(f"No answer field found in doc keys: {list(doc.keys())}")
 
 
 def process_aime_mean32(doc, results):
+    responses = _unwrap_repeated_responses(results)
+    target = _answer_from_doc(doc)
+    return {"exact_match": _mean(_math_equal(response, target) for response in responses)}
+
+
+def process_math_mean32(doc, results):
     responses = _unwrap_repeated_responses(results)
     target = _answer_from_doc(doc)
     return {"exact_match": _mean(_math_equal(response, target) for response in responses)}
@@ -196,3 +202,25 @@ def doc_to_mmlu_pro_text(doc):
     lines.append("Answer with the single correct letter. Put the final letter in \\boxed{}.")
     lines.append("Answer:")
     return "\n".join(lines)
+
+
+def doc_to_scibench_text(doc):
+    unit = str(doc.get("unit") or "").strip()
+    lines = [
+        f"Question: {doc['problem_text']}",
+        "Please solve the scientific problem. Put only the final numerical answer in \\boxed{}.",
+    ]
+    if unit:
+        lines.append(f"The expected unit is: {unit}")
+    lines.append("Answer:")
+    return "\n".join(lines)
+
+
+def doc_to_amo_bench_text(doc):
+    return "\n".join(
+        [
+            f"Question: {doc['prompt']}",
+            "Please solve the problem. Put only the final answer in \\boxed{}.",
+            "Answer:",
+        ]
+    )

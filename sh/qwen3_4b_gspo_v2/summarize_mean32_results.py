@@ -138,7 +138,14 @@ def write_summary(output_file: Path, task_name: str, sample_path: Path, samples:
 
         for sample, target, rows in per_doc:
             doc = sample.get("doc", {})
-            question = doc.get("question") or doc.get("Problem") or doc.get("problem") or ""
+            question = (
+                doc.get("question")
+                or doc.get("Problem")
+                or doc.get("problem")
+                or doc.get("problem_text")
+                or doc.get("prompt")
+                or ""
+            )
             f.write("=" * 100 + "\n")
             f.write(f"doc_id: {sample.get('doc_id')}\n")
             if question:

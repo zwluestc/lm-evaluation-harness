@@ -11,10 +11,12 @@ from datasets.exceptions import DatasetNotFoundError
 TASK_TO_YAML = {
     "qwen3_aime24_mean32": "qwen3_aime24_mean32.yaml",
     "qwen3_aime25_mean32": "qwen3_aime25_mean32.yaml",
+    "qwen3_amo_bench_mean32": "qwen3_amo_bench_mean32.yaml",
     "qwen3_arc_challenge_mean32": "qwen3_arc_challenge_mean32.yaml",
     "qwen3_gpqa_diamond_mean32": "qwen3_gpqa_diamond_mean32.yaml",
     "qwen3_gpqa_mean32": "qwen3_gpqa_mean32.yaml",
     "qwen3_mmlu_pro_mean32": "qwen3_mmlu_pro_mean32.yaml",
+    "qwen3_scibench_mean32": "qwen3_scibench_mean32.yaml",
 }
 
 

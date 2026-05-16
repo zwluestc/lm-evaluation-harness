@@ -9,14 +9,14 @@ from datasets.exceptions import DatasetNotFoundError
 
 
 TASK_TO_YAML = {
-    "qwen3_4b_instruct_2507_aime24_mean32": "qwen3_4b_instruct_2507_aime24_mean32.yaml",
-    "qwen3_4b_instruct_2507_aime25_mean32": "qwen3_4b_instruct_2507_aime25_mean32.yaml",
-    "qwen3_4b_instruct_2507_amo_bench_mean32": "qwen3_4b_instruct_2507_amo_bench_mean32.yaml",
-    "qwen3_4b_instruct_2507_arc_challenge_mean32": "qwen3_4b_instruct_2507_arc_challenge_mean32.yaml",
-    "qwen3_4b_instruct_2507_gpqa_diamond_mean32": "qwen3_4b_instruct_2507_gpqa_diamond_mean32.yaml",
-    "qwen3_4b_instruct_2507_gpqa_mean32": "qwen3_4b_instruct_2507_gpqa_mean32.yaml",
-    "qwen3_4b_instruct_2507_mmlu_pro_mean32": "qwen3_4b_instruct_2507_mmlu_pro_mean32.yaml",
-    "qwen3_4b_instruct_2507_scibench_mean32": "qwen3_4b_instruct_2507_scibench_mean32.yaml",
+    "qwen3_4b_grpo_v4_aime24_mean32": "qwen3_4b_grpo_v4_aime24_mean32.yaml",
+    "qwen3_4b_grpo_v4_aime25_mean32": "qwen3_4b_grpo_v4_aime25_mean32.yaml",
+    "qwen3_4b_grpo_v4_amo_bench_mean32": "qwen3_4b_grpo_v4_amo_bench_mean32.yaml",
+    "qwen3_4b_grpo_v4_arc_challenge_mean32": "qwen3_4b_grpo_v4_arc_challenge_mean32.yaml",
+    "qwen3_4b_grpo_v4_gpqa_diamond_mean32": "qwen3_4b_grpo_v4_gpqa_diamond_mean32.yaml",
+    "qwen3_4b_grpo_v4_gpqa_mean32": "qwen3_4b_grpo_v4_gpqa_mean32.yaml",
+    "qwen3_4b_grpo_v4_mmlu_pro_mean32": "qwen3_4b_grpo_v4_mmlu_pro_mean32.yaml",
+    "qwen3_4b_grpo_v4_scibench_mean32": "qwen3_4b_grpo_v4_scibench_mean32.yaml",
 }
 
 
