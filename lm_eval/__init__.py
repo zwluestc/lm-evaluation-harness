@@ -4,7 +4,12 @@ import os
 from importlib.util import find_spec
 
 
-__version__ = importlib.metadata.version("lm_eval")
+try:
+    __version__ = importlib.metadata.version("lm_eval")
+except importlib.metadata.PackageNotFoundError:
+    # Allow running directly from a source checkout via PYTHONPATH without
+    # requiring `pip install -e .` for the harness package itself.
+    __version__ = "0.0.0+local"
 
 
 # Enable high-performance transfers
