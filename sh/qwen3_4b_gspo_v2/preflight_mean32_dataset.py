@@ -15,6 +15,7 @@ TASK_TO_YAML = {
     "qwen3_arc_challenge_mean32": "qwen3_arc_challenge_mean32.yaml",
     "qwen3_gpqa_diamond_mean32": "qwen3_gpqa_diamond_mean32.yaml",
     "qwen3_gpqa_mean32": "qwen3_gpqa_mean32.yaml",
+    "qwen3_hmmt_feb_mean32": "qwen3_hmmt_feb_mean32.yaml",
     "qwen3_mmlu_pro_mean32": "qwen3_mmlu_pro_mean32.yaml",
     "qwen3_scibench_mean32": "qwen3_scibench_mean32.yaml",
 }

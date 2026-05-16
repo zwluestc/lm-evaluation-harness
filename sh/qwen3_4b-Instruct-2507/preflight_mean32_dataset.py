@@ -15,6 +15,7 @@ TASK_TO_YAML = {
     "qwen3_4b_instruct_2507_arc_challenge_mean32": "qwen3_4b_instruct_2507_arc_challenge_mean32.yaml",
     "qwen3_4b_instruct_2507_gpqa_diamond_mean32": "qwen3_4b_instruct_2507_gpqa_diamond_mean32.yaml",
     "qwen3_4b_instruct_2507_gpqa_mean32": "qwen3_4b_instruct_2507_gpqa_mean32.yaml",
+    "qwen3_4b_instruct_2507_hmmt_feb_mean32": "qwen3_4b_instruct_2507_hmmt_feb_mean32.yaml",
     "qwen3_4b_instruct_2507_mmlu_pro_mean32": "qwen3_4b_instruct_2507_mmlu_pro_mean32.yaml",
     "qwen3_4b_instruct_2507_scibench_mean32": "qwen3_4b_instruct_2507_scibench_mean32.yaml",
 }
