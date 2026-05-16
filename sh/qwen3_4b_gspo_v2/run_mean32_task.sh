@@ -40,6 +40,10 @@ echo "Log: ${LOG_FILE}"
 echo "TXT summary: ${SUMMARY_FILE}"
 echo "=================================================="
 
+python ./sh/qwen3_4b_gspo_v2/preflight_mean32_dataset.py \
+    --include-path ./sh/qwen3_4b_gspo_v2 \
+    --task "${TASK_NAME}"
+
 python -m lm_eval --model vllm \
     --model_args "pretrained=${MODEL_PATH},dtype=${DTYPE},tensor_parallel_size=${TP_SIZE},gpu_memory_utilization=${GPU_MEMORY_UTILIZATION},add_bos_token=True" \
     --include_path ./sh/qwen3_4b_gspo_v2 \
